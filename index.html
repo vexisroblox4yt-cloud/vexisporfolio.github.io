@@ -1,73 +1,485 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Vexis Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vexis - Roblox Scripter & UI Designer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: #f5f5f5;
+            box-sizing: border-box;
         }
-        header {
-            background: #24292e;
+
+        :root {
+            --primary: #ff4757;
+            --secondary: #2ed573;
+            --dark: #1e272e;
+            --light: #f5f6fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: rgba(30, 39, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(30, 39, 46, 0.9), rgba(30, 39, 46, 0.7)), 
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #ccc;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #aaa;
+        }
+
+        .skills-section {
+            padding: 5rem 2rem;
+            background: #242a31;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: #2d3436;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-card li i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .projects-section {
+            padding: 5rem 2rem;
+            background: var(--dark);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: #242a31;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .project-discontinued {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 71, 87, 0.9);
             color: white;
-            padding: 20px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(46, 213, 115, 0.1);
+            color: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: 0.3s;
+        }
+
+        .project-link:hover {
+            background: #ff2e43;
+        }
+
+        .contact-section {
+            padding: 5rem 2rem;
+            background: #242a31;
             text-align: center;
         }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
         }
-        h1 {
-            color: #24292e;
-        }
-        .project {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin: 10px 0;
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--light);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            background: #2d3436;
             border-radius: 5px;
+            transition: 0.3s;
         }
+
+        .contact-link:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-            background: #24292e;
-            color: white;
+            padding: 2rem;
+            background: #1a1f24;
+            border-top: 1px solid #333;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hi! I'm Vexis</p>
-    </header>
-    
-    <div class="container">
-        <h2>About Me</h2>
-        <p>This is my GitHub portfolio. I'm learning web development!</p>
-        
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>My Portfolio Website</h3>
-            <p>This very website you're looking at!</p>
+    <nav class="navbar">
+        <a href="#" class="logo">VEXIS</a>
+        <div class="nav-links">
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </div>
-        <div class="project">
-            <h3>Coming Soon...</h3>
-            <p>More projects will be added here</p>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ROBLOX SCRIPTER & UI DESIGNER</h1>
+            <h2>Hi, I'm <span class="highlight">Vexis</span></h2>
+            <p class="tagline">
+                I create immersive experiences and stunning interfaces for Roblox games. 
+                Specializing in <span class="highlight">Luau scripting</span>, 
+                <span class="highlight">UI/UX design</span>, and 
+                <span class="highlight">game systems development</span>.
+            </p>
+            <a href="#projects" class="project-link">View My Work <i class="fas fa-arrow-down"></i></a>
         </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <h2 class="section-title">MY SKILLS</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3><i class="fas fa-code"></i> Scripting & Development</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Luau / Lua</li>
+                    <li><i class="fas fa-check"></i> Roblox Studio API</li>
+                    <li><i class="fas fa-check"></i> Game Systems</li>
+                    <li><i class="fas fa-check"></i> Data Stores</li>
+                    <li><i class="fas fa-check"></i> Remote Events/Functions</li>
+                </ul>
+            </div>
+            
+            <div class="skill-card">
+                <h3><i class="fas fa-paint-brush"></i> UI/UX Design</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Roact / React</li>
+                    <li><i class="fas fa-check"></i> Custom GUI Systems</li>
+                    <li><i class="fas fa-check"></i> Animation Design</li>
+                    <li><i class="fas fa-check"></i> Wireframing</li>
+                    <li><i class="fas fa-check"></i> User Experience</li>
+                </ul>
+            </div>
+            
+            <div class="skill-card">
+                <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Git / GitHub</li>
+                    <li><i class="fas fa-check"></i> Visual Studio Code</li>
+                    <li><i class="fas fa-check"></i> Adobe Suite</li>
+                    <li><i class="fas fa-check"></i> Figma</li>
+                    <li><i class="fas fa-check"></i> Plugin Development</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">MY PROJECTS</h2>
+        <div class="projects-grid">
+            
+            <!-- PROJECT 1: Not an FPS by Selt -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('fps-game.jpg.png');">
+                    <div class="project-discontinued">DISCONTINUED</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Not an FPS by Selt</h3>
+                    <p>A custom FPS game with unique weapon mechanics, player movement systems, and multiplayer combat. Focused on smooth gameplay and responsive controls.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Luau</span>
+                        <span class="tech-tag">FPS Mechanics</span>
+                        <span class="tech-tag">Multiplayer</span>
+                        <span class="tech-tag">Networking</span>
+                    </div>
+                    <a href="#" class="project-link" target="_blank">View Game</a>
+                </div>
+            </div>
+            
+            <!-- PROJECT 2: Detona -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('detona.jpg.png');">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Detona</h3>
+                    <p>Fast-paced action game with explosive gameplay mechanics. Features custom particle effects, damage systems, and dynamic environments.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Luau</span>
+                        <span class="tech-tag">Particle Effects</span>
+                        <span class="tech-tag">Game Design</span>
+                        <span class="tech-tag">UI Systems</span>
+                    </div>
+                    <a href="#" class="project-link" target="_blank">Play Detona</a>
+                </div>
+            </div>
+            
+            <!-- PROJECT 3: Sword Fighting Game -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('sword-game.jpg.png');">
+                    <div class="project-discontinued">DISCONTINUED</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Sword Fighting Game by Selt</h3>
+                    <p>Melee combat system with parrying, combos, and skill-based swordplay. Includes custom hit detection, animation blending, and competitive ranking.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Luau</span>
+                        <span class="tech-tag">Combat Systems</span>
+                        <span class="tech-tag">Animation</span>
+                        <span class="tech-tag">Hit Detection</span>
+                    </div>
+                    <a href="#" class="project-link" target="_blank">View Game</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">GET IN TOUCH</h2>
+        <p>Looking for a Roblox scripter or UI designer for your project? Let's create something amazing!</p>
         
-        <h2>Contact</h2>
-        <p>Email: your-email@example.com</p>
-        <p>GitHub: <a href="https://github.com/vexisportfolio">github.com/vexisportfolio</a></p>
-    </div>
-    
+        <div class="contact-links">
+            <a href="https://devforum.roblox.com/" class="contact-link" target="_blank">
+                <i class="fab fa-roblox"></i> Roblox DevForum
+            </a>
+            <a href="https://discord.com/" class="contact-link" target="_blank">
+                <i class="fab fa-discord"></i> Discord: YourUsername#0000
+            </a>
+            <a href="https://github.com/vexisportfolio" class="contact-link" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:your-email@example.com" class="contact-link">
+                <i class="fas fa-envelope"></i> Email Me
+            </a>
+        </div>
+    </section>
+
     <footer>
-        <p>© 2024 Vexis Portfolio | Made with GitHub Pages</p>
+        <p>© 2024 Vexis - Roblox Scripter & UI Designer | Made with passion for game development</p>
+        <p style="margin-top: 10px; color: #888; font-size: 0.9rem;">
+            <i class="fas fa-heart" style="color: var(--primary);"></i> 
+            Building the future of Roblox experiences
+        </p>
     </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .project-card').forEach(card => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
