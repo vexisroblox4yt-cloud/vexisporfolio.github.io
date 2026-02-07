@@ -26,6 +26,7 @@
             line-height: 1.6;
         }
 
+        /* Navigation */
         .navbar {
             background: rgba(30, 39, 46, 0.95);
             backdrop-filter: blur(10px);
@@ -63,6 +64,7 @@
             color: var(--primary);
         }
 
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -102,6 +104,7 @@
             color: #aaa;
         }
 
+        /* Skills Section */
         .skills-section {
             padding: 5rem 2rem;
             background: #242a31;
@@ -155,6 +158,7 @@
             margin-right: 10px;
         }
 
+        /* Projects Section */
         .projects-section {
             padding: 5rem 2rem;
             background: var(--dark);
@@ -241,6 +245,7 @@
             background: #ff2e43;
         }
 
+        /* Contact */
         .contact-section {
             padding: 5rem 2rem;
             background: #242a31;
@@ -272,6 +277,7 @@
             transform: scale(1.05);
         }
 
+        /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
@@ -279,6 +285,7 @@
             border-top: 1px solid #333;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.5rem;
@@ -296,6 +303,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <a href="#" class="logo">VEXIS</a>
         <div class="nav-links">
@@ -305,6 +313,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>ROBLOX SCRIPTER & UI DESIGNER</h1>
@@ -319,6 +328,7 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <h2 class="section-title">MY SKILLS</h2>
         <div class="skills-grid">
@@ -357,6 +367,7 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects" class="projects-section">
         <h2 class="section-title">MY PROJECTS</h2>
         <div class="projects-grid">
@@ -375,7 +386,7 @@
                         <span class="tech-tag">Multiplayer</span>
                         <span class="tech-tag">Networking</span>
                     </div>
-                    <a href="#" class="project-link" target="_blank">View Game</a>
+                    <!-- Button removed for discontinued project -->
                 </div>
             </div>
             
@@ -392,7 +403,7 @@
                         <span class="tech-tag">Game Design</span>
                         <span class="tech-tag">UI Systems</span>
                     </div>
-                    <a href="#" class="project-link" target="_blank">Play Detona</a>
+                    <a href="https://www.roblox.com/games/129679815712387/Detona" class="project-link" target="_blank">Play Detona</a>
                 </div>
             </div>
             
@@ -410,12 +421,13 @@
                         <span class="tech-tag">Animation</span>
                         <span class="tech-tag">Hit Detection</span>
                     </div>
-                    <a href="#" class="project-link" target="_blank">View Game</a>
+                    <!-- Button removed for discontinued project -->
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <h2 class="section-title">GET IN TOUCH</h2>
         <p>Looking for a Roblox scripter or UI designer for your project? Let's create something amazing!</p>
@@ -425,7 +437,7 @@
                 <i class="fab fa-roblox"></i> Roblox DevForum
             </a>
             <a href="https://discord.com/" class="contact-link" target="_blank">
-                <i class="fab fa-discord"></i> Discord: YourUsername#0000
+                <i class="fab fa-discord"></i> Discord: vexis#0000
             </a>
             <a href="https://github.com/vexisportfolio" class="contact-link" target="_blank">
                 <i class="fab fa-github"></i> GitHub
@@ -436,6 +448,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>© 2024 Vexis - Roblox Scripter & UI Designer | Made with passion for game development</p>
         <p style="margin-top: 10px; color: #888; font-size: 0.9rem;">
@@ -445,6 +458,7 @@
     </footer>
 
     <script>
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -461,6 +475,7 @@
             });
         });
 
+        // Add animation on scroll
         const observerOptions = {
             threshold: 0.1
         };
@@ -474,6 +489,7 @@
             });
         }, observerOptions);
 
+        // Observe all project and skill cards
         document.querySelectorAll('.skill-card, .project-card').forEach(card => {
             card.style.opacity = "0";
             card.style.transform = "translateY(20px)";
