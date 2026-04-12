@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vexis - Roblox Scripter & UI Designer</title>
+    <title>Vexis - Roblox Scripter</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -116,7 +116,7 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -208,22 +208,7 @@
         .project-title {
             color: var(--secondary);
             font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .tech-tag {
-            background: rgba(46, 213, 115, 0.1);
-            color: var(--secondary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
 
         .project-link {
@@ -233,7 +218,7 @@
             padding: 0.5rem 1.5rem;
             border-radius: 5px;
             text-decoration: none;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             transition: 0.3s;
         }
 
@@ -307,13 +292,12 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>ROBLOX SCRIPTER & UI DESIGNER</h1>
+            <h1>ROBLOX SCRIPTER</h1>
             <h2>Hi, I'm <span class="highlight">Vexis</span></h2>
             <p class="tagline">
-                I create immersive experiences and stunning interfaces for Roblox games. 
-                Specializing in <span class="highlight">Luau scripting</span>, 
-                <span class="highlight">UI/UX design</span>, and 
-                <span class="highlight">game systems development</span>.
+                I create game systems and mechanics for Roblox experiences.
+                Specializing in <span class="highlight">Luau scripting</span> and 
+                <span class="highlight">game development</span>.
             </p>
             <a href="#projects" class="project-link">View My Work <i class="fas fa-arrow-down"></i></a>
         </div>
@@ -325,32 +309,28 @@
             <div class="skill-card">
                 <h3><i class="fas fa-code"></i> Scripting & Development</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Luau / Lua</li>
-                    <li><i class="fas fa-check"></i> Roblox Studio API</li>
-                    <li><i class="fas fa-check"></i> Game Systems</li>
-                    <li><i class="fas fa-check"></i> Data Stores</li>
-                    <li><i class="fas fa-check"></i> Remote Events/Functions</li>
+                    <li><i class="fas fa-check"></i> Roblox Studio</li>
                 </ul>
             </div>
             
             <div class="skill-card">
-                <h3><i class="fas fa-paint-brush"></i> UI/UX Design</h3>
+                <h3><i class="fas fa-cogs"></i> Game Mechanics</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Roact / React</li>
-                    <li><i class="fas fa-check"></i> Custom GUI Systems</li>
-                    <li><i class="fas fa-check"></i> Animation Design</li>
-                    <li><i class="fas fa-check"></i> Wireframing</li>
-                    <li><i class="fas fa-check"></i> User Experience</li>
+                    <li><i class="fas fa-check"></i> Combat Systems</li>
+                    <li><i class="fas fa-check"></i> Player Progression</li>
+                    <li><i class="fas fa-check"></i> Save/Load Systems</li>
+                    <li><i class="fas fa-check"></i> Multiplayer Logic</li>
+                    <li><i class="fas fa-check"></i> Optimization</li>
                 </ul>
             </div>
             
             <div class="skill-card">
-                <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                <h3><i class="fas fa-tools"></i> Tools & Workflow</h3>
                 <ul>
                     <li><i class="fas fa-check"></i> Git / GitHub</li>
                     <li><i class="fas fa-check"></i> Visual Studio Code</li>
-                    <li><i class="fas fa-check"></i> Adobe Suite</li>
-                    <li><i class="fas fa-check"></i> Figma</li>
+                    <li><i class="fas fa-check"></i> Debugging</li>
+                    <li><i class="fas fa-check"></i> Version Control</li>
                     <li><i class="fas fa-check"></i> Plugin Development</li>
                 </ul>
             </div>
@@ -368,12 +348,6 @@
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Not an FPS</h3>
-                    <div class="project-tech">
-                        <span class="tech-tag">Luau</span>
-                        <span class="tech-tag">FPS Mechanics</span>
-                        <span class="tech-tag">Multiplayer</span>
-                        <span class="tech-tag">Networking</span>
-                    </div>
                 </div>
             </div>
             
@@ -383,12 +357,6 @@
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Detona</h3>
-                    <div class="project-tech">
-                        <span class="tech-tag">Luau</span>
-                        <span class="tech-tag">Particle Effects</span>
-                        <span class="tech-tag">Game Design</span>
-                        <span class="tech-tag">UI Systems</span>
-                    </div>
                     <a href="https://www.roblox.com/games/129679815712387/Detona" class="project-link" target="_blank">Play Detona</a>
                 </div>
             </div>
@@ -400,12 +368,6 @@
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Sword Fighting Game</h3>
-                    <div class="project-tech">
-                        <span class="tech-tag">Luau</span>
-                        <span class="tech-tag">Combat Systems</span>
-                        <span class="tech-tag">Animation</span>
-                        <span class="tech-tag">Hit Detection</span>
-                    </div>
                 </div>
             </div>
             
@@ -415,12 +377,6 @@
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Dust and Diesel</h3>
-                    <div class="project-tech">
-                        <span class="tech-tag">Luau</span>
-                        <span class="tech-tag">Vehicle Physics</span>
-                        <span class="tech-tag">Combat Systems</span>
-                        <span class="tech-tag">Customization</span>
-                    </div>
                     <a href="https://www.roblox.com/games/78844921949169/Dust-And-Diesel" class="project-link" target="_blank">Play Dust and Diesel</a>
                 </div>
             </div>
@@ -429,7 +385,7 @@
 
     <section id="contact" class="contact-section">
         <h2 class="section-title">GET IN TOUCH</h2>
-        <p>Looking for a Roblox scripter or UI designer? Let's work together.</p>
+        <p>Looking for a Roblox scripter for your project? Let's work together.</p>
         
         <div class="contact-links">
             <a href="https://discord.com/users/1351938325245595769" class="contact-link" target="_blank">
@@ -442,7 +398,7 @@
     </section>
 
     <footer>
-        <p>© 2026 Vexis - Roblox Scripter & UI Designer | Made with passion for game development</p>
+        <p>© 2026 Vexis - Roblox Scripter | Made with passion for game development</p>
         <p style="margin-top: 10px; color: #888; font-size: 0.9rem;">
             <i class="fas fa-heart" style="color: var(--primary);"></i> 
             Building the future of Roblox experiences
@@ -488,4 +444,3 @@
     </script>
 </body>
 </html>
-
