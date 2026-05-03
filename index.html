@@ -208,6 +208,7 @@
             border-radius: 3px;
             font-size: 0.8rem;
             font-weight: bold;
+            z-index: 2;
         }
 
         .project-content {
@@ -271,6 +272,12 @@
             padding: 2rem;
             background: #1a1f24;
             border-top: 1px solid #333;
+        }
+
+        /* Special class for sword image to force thumbnail size */
+        .sword-thumbnail {
+            background-size: contain !important;
+            background-color: #0d1117 !important;
         }
 
         @media (max-width: 768px) {
@@ -371,9 +378,9 @@
                 </div>
             </div>
             
-            <!-- PROJECT 3: Sword Fighting Game (Roblox thumbnail style) -->
+            <!-- PROJECT 3: Sword Fighting Game - FORCED Roblox thumbnail size -->
             <div class="project-card">
-                <div class="project-image" style="background-image: url('sword-game.jpg.png'); background-size: contain; background-color: #0d1117;">
+                <div class="project-image sword-thumbnail" style="background-image: url('sword-game.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #0d1117;">
                     <div class="project-discontinued">DISCONTINUED</div>
                 </div>
                 <div class="project-content">
