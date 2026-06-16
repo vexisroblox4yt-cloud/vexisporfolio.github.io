@@ -64,12 +64,12 @@
         }
 
         .hero {
-            min-height: 60vh;
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 6rem 2rem 4rem;
+            padding: 6rem 2rem 3rem;
             background: linear-gradient(135deg, rgba(30, 39, 46, 0.85), rgba(30, 39, 46, 0.75)), 
                         url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
@@ -93,8 +93,66 @@
         .scripting-since {
             font-size: 1rem;
             color: var(--secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             letter-spacing: 1px;
+        }
+
+        /* Pricing Policy Section */
+        .pricing-section {
+            padding: 3rem 2rem;
+            background: #1a1f24;
+            border-bottom: 1px solid #333;
+        }
+
+        .pricing-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pricing-container h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-container .policy-text {
+            color: #aaa;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .pricing-item {
+            background: #242a31;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .pricing-item h3 {
+            color: var(--secondary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-item .price {
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .pricing-item .note {
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
         }
 
         .projects-section {
@@ -245,6 +303,10 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -252,6 +314,7 @@
     <nav class="navbar">
         <a href="#" class="logo">VEXIS</a>
         <div class="nav-links">
+            <a href="#pricing">Pricing</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </div>
@@ -262,6 +325,33 @@
             <h1>ROBLOX SCRIPTER</h1>
             <h2>Hi, I'm <span class="highlight">Vexis</span></h2>
             <div class="scripting-since">Scripting since 2025</div>
+        </div>
+    </section>
+
+    <!-- Pricing Policy Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="pricing-container">
+            <h2>PRICING POLICY</h2>
+            <p class="policy-text">
+                I do not accept percentage payments unless the game is <strong>released</strong>, has <strong>good revenue</strong>, or has <strong>actual hype and a community</strong>.
+            </p>
+            <div class="pricing-grid">
+                <div class="pricing-item">
+                    <h3>Small Systems</h3>
+                    <div class="price">2,000 ROBUX</div>
+                    <div class="note">Basic scripts, simple mechanics</div>
+                </div>
+                <div class="pricing-item">
+                    <h3>Medium Systems</h3>
+                    <div class="price">6,000 ROBUX</div>
+                    <div class="note">Complex systems, multiple features</div>
+                </div>
+                <div class="pricing-item">
+                    <h3>Advanced Systems</h3>
+                    <div class="price">15,000 ROBUX</div>
+                    <div class="note">Full game mechanics, large-scale systems</div>
+                </div>
+            </div>
         </div>
     </section>
 
